@@ -19,14 +19,14 @@ class Page { //criando a classe Page
     }
 
     //método mágico construct
-    public function __construct( $opts = array() ){ //variável de opções
+    public function __construct( $opts = array(), $tpl_dir = "/views/" ){ //variável de opções
 
         $this->options = array_merge( $this->defaults, $opts ); // mesclando os arrays de opções - options e defaults. O ultimo array passado como atributo sobrescreve o segundo, logo é necessário atenção para a ordem. Após a mesclagem, esse array é colocado no atributo options
 
         // -- configurando o template --
 
         $config = array(
-            "tpl_dir" => $_SERVER[ "DOCUMENT_ROOT" ]."/views/", // especificando que a partir do nosso diretorio root, no nosso projeto, procura a pasta "tal". Pra isso usamos a variável de ambiente $_SERVER["DOCUMENT_ROOT"] que vai trazer onde está a pasta/o diretório root do servidor. Após o '.', estamos especificando aonde está o template.
+            "tpl_dir" => $_SERVER[ "DOCUMENT_ROOT" ].$tpl_dir, // especificando que a partir do nosso diretorio root, no nosso projeto, procura a pasta "tal". Pra isso usamos a variável de ambiente $_SERVER["DOCUMENT_ROOT"] que vai trazer onde está a pasta/o diretório root do servidor. Após o '.', estamos especificando aonde está o template.
             "cache_dir" => $_SERVER[ "DOCUMENT_ROOT" ]."/views-cache/",
             "debug" => false // set to false to improve the speed
         );
