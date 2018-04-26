@@ -7,8 +7,10 @@ class Page { //criando a classe Page
 
     private $tpl;
     private $options = [];
-    //definindo opções padrão
+    //definindo opções padrão das páginas
     private $defaults = [
+        "header" => true,
+        "footer" => true,
         "data" => []
     ];
 
@@ -39,7 +41,8 @@ class Page { //criando a classe Page
         //Os dados do merge estarão na chave 'data' do options
        $this->setData( $this->options[ "data" ] );
 
-        $this->tpl->draw( "header" ); //desenhando o template na tela
+        if ( $this->options["header"] === true )
+            $this->tpl->draw( "header" ); //desenhando o template na tela
 
     }
 
@@ -47,11 +50,13 @@ class Page { //criando a classe Page
 
         $this->setData( $data );
         return $this->tpl->draw( $name, $returnHTML );
+
     }
 
     public function __destruct(){ //método mágico destruct
 
-        $this->tpl->draw( "footer" );
+        if ( $this->options["footer"] === true )
+            $this->tpl->draw( "footer" );
 
     }
 }
