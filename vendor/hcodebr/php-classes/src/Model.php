@@ -1,8 +1,9 @@
 <?php
 
 namespace Hcode;
+use \Hcode\Mailer;
 
-class Model {
+class Model extends Mailer{
 
     private $values = []; //dados do usuário
 
@@ -35,7 +36,6 @@ class Model {
         
         }
     }
-
 
     public function getValues(){
         return $this->values;
