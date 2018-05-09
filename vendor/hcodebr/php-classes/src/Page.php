@@ -1,6 +1,7 @@
 <?php
 
 namespace Hcode; //especificando o namespace da nossa classe
+
 use Rain\Tpl; //especificando que pretendo usar mais um namespace (Rain, no caso) e a classe Tpl dentro desse namespace
 
 class Page { //criando a classe Page

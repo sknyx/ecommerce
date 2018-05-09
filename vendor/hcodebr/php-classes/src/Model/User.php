@@ -6,7 +6,8 @@ use \Hcode\DB\Sql;
 use \Hcode\Mailer;
 use \Hcode\Model;
 
-class User extends Model{
+class User extends Model
+{
 
     const SESSION = "User";
     const FORGOT_SECRET = "HcodePhp7_Secret"; //chave para descriptografar senha
@@ -125,6 +126,7 @@ class User extends Model{
         ));
 
         $this->setData($results[0]);
+        
     }
 
     public function delete(){
@@ -183,7 +185,8 @@ class User extends Model{
 		{
 			throw new \Exception("Não foi possível redefinir a senha.");
 		}
-	}
+    }
+    
 	public static function validForgotDecrypt($code)
 	{
 		$code = trim(mcrypt_decrypt(MCRYPT_RIJNDAEL_128, User::FORGOT_SECRET, base64_decode($code), MCRYPT_MODE_ECB));
