@@ -20,14 +20,15 @@ class Product extends Model
         
         $sql = new Sql();
         
-        $results = $sql->select("CALL sp_products_save(:idproduct, :desproduct, :vlprice, :vlwidth, :vlheight, :vllength, :vlweight)", array(
+        $results = $sql->select("CALL sp_products_save(:idproduct, :desproduct, :vlprice, :vlwidth, :vlheight, :vllength, :vlweight, :desurl)", array(
             ":idproduct" => $this->getidproduct(),
             ":desproduct" => $this->getdesproduct(),
             ":vlprice" => $this->getvlprice(),
             ":vlwidth" => $this->getvlwidth(),
             ":vlheight" => $this->getvlheight(),
             ":vllength" => $this->getvllength(),
-            ":vlweight" => $this->getvlweight()
+            ":vlweight" => $this->getvlweight(),
+            ":desurl" => $this->getdesurl()
         ));
 
         $this->setData($results[0]);
@@ -100,15 +101,15 @@ class Product extends Model
         switch ($extension) {
             case "jpg":
             case "jpeg":
-            $image = imgcreatefromjpeg($file["tmp_name"]);
+            $image = imagecreatefromjpeg($file["tmp_name"]);
             break;
 
             case "gif":
-            $image = imgcreatefromgif($file["tmp_name"]);
+            $image = imagecreatefromgif($file["tmp_name"]);
             break;
 
             case "png":
-            $image = imgcreatefrompng($file["tmp_name"]);
+            $image = imagecreatefrompng($file["tmp_name"]);
             break;
         }
 
