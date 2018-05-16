@@ -15,6 +15,4 @@ $app->get('/', function () {
         $page->setTpl("index");
     
     });
-
-
 ?>

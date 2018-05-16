@@ -1,6 +1,5 @@
 <?php
 
-
 $app->get("/admin/users", function(){ //rota para a tela onde vai listar todos os usuários
 	
 	//User::verifyLogin();
@@ -76,7 +75,7 @@ $app->post("/admin/users/create", function(){  //rota para salvar de fato as inf
 
 });
 
-$app->post("/admin/users/:iduser", function($iduser){  //rota para salvar de fato as informações passadas no get->:iduser
+$app->post("/admin/users/:iduser", function($iduser){  ///rota para salvar de fato as informações passadas no get->:iduser
 	
 	User::verifyLogin();
 

@@ -3,7 +3,6 @@
 namespace Hcode\Model;
 
 use \Hcode\DB\Sql;
-//use \Hcode\Mailer;
 use \Hcode\Model;
 
 class Product extends Model

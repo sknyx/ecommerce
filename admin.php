@@ -41,7 +41,6 @@ $app->get('/admin/logout', function(){ //rota para fazer o logout
     exit;
 });
 
-
 $app->get("/admin/forgot", function(){
 	
 	$page = new PageAdmin( [ //essa pagina não possue o mesmo header e footer das outras páginas, logo devemos desabilitar esses dois dessa maneira:
@@ -112,5 +111,5 @@ $app->post("/admin/forgot/reset", function(){
 	$page->setTpl("forgot-reset-success");
 
 });
-
+//
 ?>
